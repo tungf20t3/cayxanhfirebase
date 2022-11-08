@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "243309070067",
+    "project_id": "myapp-272bf",
+    "storage_bucket": "myapp-272bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243309070067:android:1a9c2d4bd29982c437d986",
+        "android_client_info": {
+          "package_name": "com.zantung.sinhvienfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243309070067-e3lepgo77b3dvdb6vt2118rgpl2usj4c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zantung.sinhvienfirebase",
+            "certificate_hash": "1f1997b5f7e663a08b85b24fcaf8cfbb16be9d96"
+          }
+        },
+        {
+          "client_id": "243309070067-9f7e5j4c14rmtdier5ftmg2ags5rbvic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBimmD0tCnHZjtp8XYRow7fjxra-AY4V5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243309070067-9f7e5j4c14rmtdier5ftmg2ags5rbvic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
