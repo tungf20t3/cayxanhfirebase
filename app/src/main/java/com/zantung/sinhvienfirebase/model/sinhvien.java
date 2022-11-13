@@ -1,13 +1,15 @@
 package com.zantung.sinhvienfirebase.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class sinhvien {
     private int id;
-    private String ten, lop;
+    private String ten;
 
-    public sinhvien(int id, String ten, String lop) {
+    public sinhvien(int id, String ten) {
         this.id = id;
         this.ten = ten;
-        this.lop = lop;
     }
 
     public sinhvien() {
@@ -29,11 +31,9 @@ public class sinhvien {
         this.ten = ten;
     }
 
-    public String getLop() {
-        return lop;
-    }
-
-    public void setLop(String lop) {
-        this.lop = lop;
+    public Map<String, Object> toMap(){
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("ten", ten);
+        return result;
     }
 }

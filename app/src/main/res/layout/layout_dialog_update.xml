@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dialog Update"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textSize="25sp"
+            android:background="@color/notifications"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+
+<!--        <EditText-->
+<!--            android:id="@+id/edt_id"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/round_border"-->
+<!--            android:padding="16dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:imeOptions="actionNext"-->
+<!--            android:hint="Id"/>-->
+
+        <EditText
+            android:id="@+id/edt_NewName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_border"
+            android:padding="16dp"
+            android:imeOptions="actionDone"
+            android:hint="New Name"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <Button
+                android:id="@+id/btn_dialogCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_bg_wc"
+                android:text="Cancel"/>
+
+            <Button
+                android:id="@+id/btn_dialogUpdate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:background="@drawable/btn_bg_wc"
+                android:text="Update"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

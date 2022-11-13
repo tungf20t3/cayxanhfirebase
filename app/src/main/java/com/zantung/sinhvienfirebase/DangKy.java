@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DangKy extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private Button btnDangKy;
+    private TextView tvDangNhap;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +32,20 @@ public class DangKy extends AppCompatActivity {
                 Dangky();
             }
         });
+        tvDangNhap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(DangKy.this, DangNhap.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void AnhXa() {
         edtEmail = findViewById(R.id.inputEmail);
         edtPassword = findViewById(R.id.inputPassword);
         btnDangKy = findViewById(R.id.btn_login);
+        tvDangNhap = findViewById(R.id.tvLogin);
     }
 
     private void Dangky(){
@@ -46,7 +56,7 @@ public class DangKy extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(DangKy.this, MainActivity.class);
+                    Intent intent = new Intent(DangKy.this, DangNhap.class);
                     startActivity(intent);
                     finishAffinity();
                 } else {
