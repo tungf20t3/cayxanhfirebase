@@ -1,6 +1,8 @@
 package com.zantung.sinhvienfirebase.model;
 
-public class CayXanh {
+import java.io.Serializable;
+
+public class CayXanh implements Serializable {
     private int id;
     private String ten_khoa_hoc, ten_thuong_goi, dac_tinh, mau_la;
     private String hinh_anh;
@@ -12,6 +14,9 @@ public class CayXanh {
         this.dac_tinh = dac_tinh;
         this.mau_la = mau_la;
         this.hinh_anh = hinh_anh;
+    }
+
+    public CayXanh() {
     }
 
     public int getId() {

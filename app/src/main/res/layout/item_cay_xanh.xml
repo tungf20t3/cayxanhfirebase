@@ -30,11 +30,10 @@
                 android:layout_marginBottom="3dp"
                 android:src="@drawable/bg_main" />
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgCay"
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_height="match_parent"
-                android:padding="5dp"
                 android:src="@drawable/logomain2" />
 
             <LinearLayout
@@ -42,8 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:orientation="vertical"
-                android:layout_marginLeft="100dp"
-                android:padding="10dp">
+                android:layout_marginLeft="75dp">
 
                 <TextView
                     android:id="@+id/tvTenKhoaHoc"
@@ -54,10 +52,10 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tvtenThuongGoi"
+                    android:id="@+id/tvMauLa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tên thường gọi:"
+                    android:text="Màu lá: "
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -70,13 +68,12 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tvMauLa"
+                    android:id="@+id/tvtenThuongGoi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Đặc tính: "
+                    android:text="Tên thường gọi:"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
-
             </LinearLayout>
 
             <Button

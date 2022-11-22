@@ -6,25 +6,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.zantung.sinhvienfirebase.DetailCayXanh;
 import com.zantung.sinhvienfirebase.R;
 import com.zantung.sinhvienfirebase.model.CayXanh;
-import com.zantung.sinhvienfirebase.model.sinhvien;
 
 import java.util.List;
 
 public class CayXanhAdapter extends RecyclerView.Adapter<CayXanhAdapter.CayXanhViewHolder> {
-    private Context context;
+
     private List<CayXanh> ListCayXanh;
+    private Context context;
     private IClickListener iClickListener;
 
     public interface IClickListener {
         void onClickDeleteItem(CayXanh cx);
+    }
+
+    public CayXanhAdapter(List<CayXanh> listCayXanh, Context context, IClickListener iClickListener) {
+        ListCayXanh = listCayXanh;
+        this.context = context;
+        this.iClickListener = iClickListener;
     }
 
     @NonNull
@@ -36,7 +44,7 @@ public class CayXanhAdapter extends RecyclerView.Adapter<CayXanhAdapter.CayXanhV
 
     @Override
     public void onBindViewHolder(@NonNull CayXanhAdapter.CayXanhViewHolder holder, int position) {
-        CayXanh cayXanh = ListCayXanh.get(position);
+        final CayXanh cayXanh = ListCayXanh.get(position);
         if (cayXanh == null){
             return;
         }
@@ -46,14 +54,16 @@ public class CayXanhAdapter extends RecyclerView.Adapter<CayXanhAdapter.CayXanhV
         holder.mau_la.setText("Màu lá: " + cayXanh.getMau_la());
         Glide.with(context).load(cayXanh.getHinh_anh()).into(holder.imgCayXanh);
         //bat su kien ra main
-
         holder.btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 iClickListener.onClickDeleteItem(cayXanh);
             }
         });
+
     }
+
+
 
     @Override
     public int getItemCount() {
