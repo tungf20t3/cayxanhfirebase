@@ -30,42 +30,54 @@
                 android:layout_marginBottom="3dp"
                 android:src="@drawable/bg_main" />
 
+            <ImageView
+                android:id="@+id/imgCay"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@drawable/logomain2" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/btn_Update"
                 android:orientation="vertical"
+                android:layout_marginLeft="100dp"
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/tv_ID"
+                    android:id="@+id/tvTenKhoaHoc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ID: 1"
+                    android:text="Tên khoa học:"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/tv_Name"
+                    android:id="@+id/tvtenThuongGoi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Name: Lưu Văn Tùng"
+                    android:text="Tên thường gọi:"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvDacTinh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đặc tính: "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvMauLa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Đặc tính: "
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btn_Update"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@id/btn_Delete"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:background="@drawable/btn_bg_wc"
-                android:text="Update"
-                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/btn_Delete"

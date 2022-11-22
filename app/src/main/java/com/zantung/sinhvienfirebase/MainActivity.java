@@ -17,6 +17,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -26,14 +27,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.zantung.sinhvienfirebase.adapter.SinhVienAdapter;
+import com.zantung.sinhvienfirebase.model.CayXanh;
 import com.zantung.sinhvienfirebase.model.sinhvien;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText edtID, edtName;
-    private Button btnAddSV;
+    private EditText edtTenKH, edtTenTG, edtDacTinh, edtMauLa, imganhCayXanh;
+    private Button btnAddCX;
     private RecyclerView rcvSinhVien;
     private SinhVienAdapter mAdapter;
     private List<sinhvien> mListSV;
@@ -41,23 +43,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         AnhXa();
-        btnAddSV.setOnClickListener(new View.OnClickListener() {
+
+        btnAddCX.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int id = Integer.parseInt(edtID.getText().toString().trim());
-                String name = edtName.getText().toString().trim();
-                sinhvien sv = new sinhvien(id, name);
-                onClickAddSV(sv);
+                int id =
+                String tenKH = edtTenKH.getText().toString().trim();
+                String tenTG = edtTenTG.getText().toString().trim();
+                String dacTinh = edtDacTinh.getText().toString().trim();
+                String mauLa = edtMauLa.getText().toString().trim();
+                String hinhAnh = imganhCayXanh.getText().toString().trim();
+
+                CayXanh cayXanh = new CayXanh(id, tenKH, tenTG, dacTinh, mauLa, hinhAnh);
+                onClickAddSV(cayXanh);
             }
         });
         getListFromFireBase();
     }
 
     private void AnhXa() {
-        edtID = findViewById(R.id.edt_id);
-        edtName = findViewById(R.id.edt_name);
-        btnAddSV = findViewById(R.id.btn_add);
+        edtTenKH = findViewById(R.id.edt_tenKH);
+        edtTenTG = findViewById(R.id.edt_tenTG);
+        edtDacTinh = findViewById(R.id.edt_dacTinh);
+        edtMauLa = findViewById(R.id.edt_mauLa);
+        imganhCayXanh = findViewById(R.id.edt_hinhAnh);
+        btnAddCX = findViewById(R.id.btn_cayXanh);
         rcvSinhVien = findViewById(R.id.rcv_SV);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -77,19 +89,19 @@ public class MainActivity extends AppCompatActivity {
         rcvSinhVien.setAdapter(mAdapter);
     }
 
-    private void onClickAddSV(sinhvien sv) {
+    private void onClickAddSV(CayXanh cayXanh) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("SinhVien");
+        DatabaseReference myRef = database.getReference("CayXanh");
 
-        String pathObject = String.valueOf(sv.getId());
-        myRef.child(pathObject).setValue(sv, new DatabaseReference.CompletionListener() {
+        String pathObject = String.valueOf(cayXanh.getId());
+        myRef.child(pathObject).setValue(cayXanh, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                Toast.makeText(MainActivity.this, "Thêm sinh viên thành công", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Thêm cây xanh thành công", Toast.LENGTH_SHORT).show();
             }
         });
-        edtID.setText("");
-        edtName.setText("");
+//        edtID.setText("");
+//        edtName.setText("");
     }
 
     private void getListFromFireBase(){
